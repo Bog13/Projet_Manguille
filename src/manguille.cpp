@@ -1,8 +1,14 @@
 #include <iostream>
+#include <Game.hpp>
+#include <global.hpp>
 using namespace std;
 
 int main()
 {
-  cout<<"Hello world"<<endl;
+  sf::RenderWindow window(sf::VideoMode(WIDTH,HEIGHT),PROJECT_NAME);
+
+  Game game(&window);
+  game.render();
+
   return 0;
 }
