@@ -1,1 +1,0 @@
-/usr/bin/c++       CMakeFiles/manguille.dir/src/manguille.cpp.o  -o bin/manguille -rdynamic -lsfml-audio -lsfml-graphics -lsfml-window -lsfml-system 
