@@ -1,4 +1,4 @@
 AUTHORS 
 
-Matthieu Mazelium
-Bérenger Bog13
+Mazelium
+Bog13
