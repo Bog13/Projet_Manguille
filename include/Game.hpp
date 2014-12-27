@@ -4,6 +4,8 @@
 #include <SFML/Graphics.hpp>
 using namespace sf;
 
+class Scene;
+
 class Game
 {
 public:
@@ -15,6 +17,8 @@ public:
   void display();
 private:
   RenderWindow *m_window;
+  Scene *m_scene;
+
 };
 
 #endif

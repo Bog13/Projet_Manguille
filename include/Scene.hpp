@@ -10,8 +10,8 @@ public:
   Scene();
   ~Scene();
 
-  void update();
-  void display(RenderWindow* rw);
+  virtual void update() = 0;
+  virtual void display(RenderWindow* rw) = 0;
 
 private:
 };

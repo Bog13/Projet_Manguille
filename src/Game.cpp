@@ -1,17 +1,23 @@
 #include <Game.hpp>
+#include <global.hpp>
+#include <Scene.hpp>
+#include <Menu.hpp>
+#include <TextureLoader.hpp>
 
 Game::Game(RenderWindow *w): m_window(w)
 {
+  m_scene = new Menu;
 }
 
 void Game::update()
 {
+  m_scene->update();
 }
 
 
 void Game::display()
 {
-
+  m_scene->display(m_window);
 }
 
 void Game::render()
@@ -54,4 +60,5 @@ void Game::render()
 
 Game::~Game()
 {
+  delete m_scene;
 }
