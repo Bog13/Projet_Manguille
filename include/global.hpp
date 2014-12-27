@@ -6,4 +6,15 @@
 #define WIDTH 640
 #define HEIGHT 480
 
+
+
+
+
+enum
+  {
+    MENU = 0,
+    MENU_JOUER = 1 
+  };
+
+
 #endif

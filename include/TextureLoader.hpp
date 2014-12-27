@@ -7,6 +7,7 @@
 #include <global.hpp>
 using namespace sf;
 
+
 class TextureLoader
 {
 public:
@@ -29,6 +30,7 @@ public:
   {
     TextureLoader* t = TextureLoader::instance();
     t->add(DATA_PATH + "/img/menu_fond.png");
+    t->add(DATA_PATH + "/img/menu_jouer.png");
     
   }
 

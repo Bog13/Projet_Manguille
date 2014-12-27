@@ -16,6 +16,7 @@ public:
 
 private:
   RectangleShape m_bg;
+  RectangleShape m_jouer;
 };
 
 #endif
