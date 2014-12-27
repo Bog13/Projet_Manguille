@@ -30,3 +30,6 @@
 # Emacs
 \#*\#
 *~
+
+# build
+build/
