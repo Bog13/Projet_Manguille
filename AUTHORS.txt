@@ -1,2 +1,4 @@
+AUTHORS 
+
 Matthieu Mazelium
 Bérenger Bog13
