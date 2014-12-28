@@ -4,9 +4,24 @@
 #include <Game.hpp>
 #include <Ship.hpp>
 #include <BattleScene.hpp>
+#include <SFML/Audio.hpp>
 
-EnemyShip::EnemyShip(BattleScene* o,int vx, int freq, int acc): Ship(o,vx,freq,acc)
+EnemyShip::EnemyShip(BattleScene* o,int px,int vx, int freq, int acc): Ship(o,vx,freq,acc)
 {
+  m_name = "enemyship";
+
+  int texture = 0;
+
+  if( px <= Game::random(0,101))
+    {
+      texture = I_SHIP_Y;
+    }
+  else
+    {
+      texture = I_SHIP_X;
+    }
+
+  m_rs.setTexture(TextureLoader::instance()->get(texture));
 
 }
 
@@ -36,6 +51,7 @@ void EnemyShip::update()
     }
   else
     {
+
       m_rs.move(-m_xvel/2,m_xvel);
       m_rs.rotate(0.2);
     }

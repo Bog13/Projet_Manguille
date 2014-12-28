@@ -6,7 +6,7 @@
 
 Ship::Ship(BattleScene *o,int vx, int freq, int acc): m_owner(o)
 {
-
+  m_name  = "ship";
   m_xvel = vx ;m_shootFreq = freq ; m_w = 64 ; m_h = 32 ; m_accuracy = acc ; m_life = 100 ; m_maxLife = 100 ;
 
   m_rs = RectangleShape(Vector2f(m_w,m_h));

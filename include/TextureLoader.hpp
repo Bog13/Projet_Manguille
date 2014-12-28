@@ -38,9 +38,14 @@ public:
     t->add(DATA_PATH + "/img/fond_2.png");
     t->add(DATA_PATH + "/img/fond_3.png");
     t->add(DATA_PATH + "/img/fond_4.png");
-    t->add(DATA_PATH + "/img/ship.png");
+    t->add(DATA_PATH + "/img/ship_ymanguille.png");
+    t->add(DATA_PATH + "/img/ship_x.png");
+    t->add(DATA_PATH + "/img/ship_y.png");
     t->add(DATA_PATH + "/img/empereur.png");
     t->add(DATA_PATH + "/img/manguille.png");
+    t->add(DATA_PATH + "/img/comte_xelor.png");
+    t->add(DATA_PATH + "/img/comte_yaarvin.png");
+    
 
 
     

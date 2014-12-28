@@ -28,7 +28,7 @@ public:
   void change(Scene *s);
   void make();
 
-
+  void gameOver();
   static int random(int a,int b)
   {
     return rand()%(b-a)+a;
@@ -44,6 +44,7 @@ private:
   int m_numScene;
   std::vector<Scene*> m_scenes;
   Clock m_timeBeetwenScene;
+  bool m_gameover;
 };
 
 #endif

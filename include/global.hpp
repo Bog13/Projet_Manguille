@@ -23,8 +23,12 @@ enum
     I_BATTLE_3 = 7,
     I_BATTLE_4 = 8,
     I_SHIP_1 = 9,
-    I_EMPEROR = 10,
-    I_MANGUILLE = 11
+    I_SHIP_X = 10,
+    I_SHIP_Y = 11,
+    I_EMPEROR = 12,
+    I_MANGUILLE = 13,
+    I_XELOR = 14,
+    I_YAARVIN = 15
   };
 
 enum
@@ -39,7 +43,10 @@ enum
     M_WAR_4 = 7,
     M_WAR_5 = 8,   
     M_WAR_6 = 9, 
-    M_WAR_7 = 10
+    M_WAR_7 = 10,
+    M_XELOR = 11,
+    M_YAARVIN = 12,
+    M_EMPEROR = 13
 
 
   };

@@ -22,6 +22,8 @@ public:
 
   virtual RectangleShape getRectangleShape(){return m_rs;}
   virtual void hit(int value){m_life -= value;}
+  virtual bool isAlive(){return m_life > 0;}
+  virtual std::string getName(){return m_name;}
 protected:
   Clock m_clock;
   int m_w;
@@ -29,7 +31,7 @@ protected:
   RectangleShape m_rs;
 
   RectangleShape m_rlife;
- 
+  std::string m_name;
   int m_xvel;
   int m_shootFreq;
   int m_accuracy;

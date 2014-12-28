@@ -1,5 +1,5 @@
-#ifndef ENEMYSHIP_HPP
-#define ENEMYSHIP_HPP
+#ifndef BOSSSHIP_HPP
+#define BOSSSHIP_HPP
 
 #include <iostream>
 #include <vector>
@@ -9,23 +9,20 @@ using namespace sf;
 
 
 
-class EnemyShip: public Ship
+class BossShip: public Ship
 {
 public:
-  EnemyShip(BattleScene* o,int px, int vx, int freq, int acc);
-  ~EnemyShip();
+  BossShip(BattleScene* o, Ship* op,int vx, int freq, int acc,int img);
+  ~BossShip();
 
   virtual void update();
   virtual void updateShoot();
 
   virtual void display(RenderWindow *w);
 protected:
-  
+  Ship* m_opponent;
  
     
 };
 
 #endif
-
-
-

@@ -40,6 +40,9 @@ public:
     MusicLoader::instance()->add(DATA_PATH + "/music/music_loop_5.ogg");
     MusicLoader::instance()->add(DATA_PATH + "/music/music_loop_6.ogg");
     MusicLoader::instance()->add(DATA_PATH + "/music/music_loop_7.ogg");
+    MusicLoader::instance()->add(DATA_PATH + "/music/xelor_theme.ogg");
+    MusicLoader::instance()->add(DATA_PATH + "/music/yaarvin_theme.ogg");
+    MusicLoader::instance()->add(DATA_PATH + "/music/emperor_theme.ogg");
   }
 
   static void kill()

@@ -12,13 +12,16 @@ class Missile;
 class BattleScene: public Scene
 {
 public:
-  BattleScene(Game *o,int nw,int wf,int img,int theme);
+  BattleScene(Game *o,int px,int nw,int ne,int wf,int img,int theme);
   virtual ~BattleScene();
   void newWave(int nb);
   virtual void update();
   virtual void display(RenderWindow* rw);
   void addMissile(Missile *m);
   bool collide(Ship* s, Missile *m);
+  void addBoss(Ship *s);
+
+  Ship* getPlayer(){return m_enemies[0];}
 private:
   RectangleShape m_bg;
   std::vector<Ship*> m_enemies;
@@ -27,6 +30,11 @@ private:
   int m_waveFreq;
   int m_nb_wave;
   bool m_first;
+  int m_nbEnemy;
+  Clock m_victoryClock;
+  int m_victoryDelay;
+  Ship* m_boss;
+  int m_px;
 };
 
 #endif
