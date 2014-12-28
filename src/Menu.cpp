@@ -5,18 +5,18 @@
 #include <Game.hpp>
 #include <Controller.hpp>
 
-Menu::Menu(Game *o):Scene(o,MENU,MENU), m_button(0), m_timeMin(250), m_nbButton(2)
+Menu::Menu(Game *o):Scene(o,I_MENU,M_MENU), m_button(0), m_timeMin(250), m_nbButton(2)
 {
   m_bg = RectangleShape(Vector2f(WIDTH,HEIGHT));
-  m_bg.setTexture( TextureLoader::instance()->get(MENU) );
+  m_bg.setTexture( TextureLoader::instance()->get(I_MENU) );
 
 
   m_jouer = RectangleShape(Vector2f(100,25));
-  m_jouer.setTexture( TextureLoader::instance()->get(MENU_JOUER) );
+  m_jouer.setTexture( TextureLoader::instance()->get(I_MENU_JOUER) );
   m_jouer.setPosition(Vector2f(WIDTH/6, HEIGHT/2  ));
 
   m_quitter = RectangleShape(Vector2f(100,25));
-  m_quitter.setTexture( TextureLoader::instance()->get(MENU_QUITTER) );
+  m_quitter.setTexture( TextureLoader::instance()->get(I_MENU_QUITTER) );
   m_quitter.setPosition(Vector2f(WIDTH/6, HEIGHT/2 + 100  ));
 
   
@@ -29,13 +29,13 @@ void Menu::updateButtons()
   switch(m_button)
     {
     case 0:
-        m_jouer.setTexture( TextureLoader::instance()->get(MENU_JOUER2) );
-	m_quitter.setTexture( TextureLoader::instance()->get(MENU_QUITTER) );
+        m_jouer.setTexture( TextureLoader::instance()->get(I_MENU_JOUER2) );
+	m_quitter.setTexture( TextureLoader::instance()->get(I_MENU_QUITTER) );
       break;
 
     case 1:
-        m_jouer.setTexture( TextureLoader::instance()->get(MENU_JOUER) );
-	m_quitter.setTexture( TextureLoader::instance()->get(MENU_QUITTER2) );
+        m_jouer.setTexture( TextureLoader::instance()->get(I_MENU_JOUER) );
+	m_quitter.setTexture( TextureLoader::instance()->get(I_MENU_QUITTER2) );
       break;
 
 

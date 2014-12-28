@@ -3,6 +3,7 @@
 #include <Scene.hpp>
 #include <Menu.hpp>
 #include <StoryScene.hpp>
+#include <BattleScene.hpp>
 #include <TextureLoader.hpp>
 #include <MusicLoader.hpp>
 #include <Controller.hpp>
@@ -10,20 +11,28 @@
 
 Game::Game(RenderWindow *w): m_window(w), m_running(true)
 {
+  srand(time(NULL));
   m_controller = new KeyboardController;
   m_numScene = -1;
 
   m_scene = nullptr;
 
-  m_scenes.push_back(new Menu(this));
-  m_scenes.push_back(new StoryScene(this,"rien a ajouter !",1,0));
-  m_scenes.push_back(new StoryScene(this,"Ceci est un dialogue, c'est fou non ? Je me demande ou est passe ce poisson ! Vous l'aimiez temps, vous le xxx comme si cetait votre fils ! Avez vous regardez dans le tiroir ? Avez vous regardez sous sa trompe ?",0,1));
-  m_scenes.push_back(new StoryScene(this,"Troisieme scene",2,0));
+    m_scenes.push_back( new BattleScene(this,I_BATTLE_1,5) );
+  
+  //  make();
 
 
+  next();
 
-   next();
+}
 
+void Game::make()
+{
+  std::string d1 = "test";
+
+
+  m_scenes.push_back( new Menu(this));
+  m_scenes.push_back( new StoryScene(this,d1,0,0));
 }
 
 Controller* Game::getController()
@@ -36,11 +45,6 @@ Controller* Game::getController()
 void Game::change(Scene *s)
 {
   m_scene = s;
-
-  if(m_scene != nullptr)
-    {
-      MusicLoader::instance()->play(m_scene->getMusic());
-    }
 }
 
 void Game::nextScene()
@@ -59,10 +63,12 @@ void Game::next()
     {
       ++m_numScene;
       change( m_scenes[m_numScene] );
+      MusicLoader::instance()->play(m_scene->getMusic());
     }
   else
     {
       m_scene = nullptr;
+      MusicLoader::instance()->stop();
     }
 }
 

@@ -31,6 +31,15 @@ public:
   {
     MusicLoader::instance()->add(DATA_PATH + "/music/menu.ogg");
     MusicLoader::instance()->add(DATA_PATH + "/music/music_1.ogg");
+    MusicLoader::instance()->add(DATA_PATH + "/music/music_2.ogg");
+    MusicLoader::instance()->add(DATA_PATH + "/music/music_3.ogg");
+    MusicLoader::instance()->add(DATA_PATH + "/music/music_loop_1.ogg");
+    MusicLoader::instance()->add(DATA_PATH + "/music/music_loop_2.ogg");
+    MusicLoader::instance()->add(DATA_PATH + "/music/music_loop_3.ogg");
+    MusicLoader::instance()->add(DATA_PATH + "/music/music_loop_4.ogg");
+    MusicLoader::instance()->add(DATA_PATH + "/music/music_loop_5.ogg");
+    MusicLoader::instance()->add(DATA_PATH + "/music/music_loop_6.ogg");
+    MusicLoader::instance()->add(DATA_PATH + "/music/music_loop_7.ogg");
   }
 
   static void kill()
