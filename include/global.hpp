@@ -23,13 +23,25 @@ enum
     I_BATTLE_3 = 7,
     I_BATTLE_4 = 8,
     I_SHIP_1 = 9,
-    I_EMPEROR = 10
+    I_EMPEROR = 10,
+    I_MANGUILLE = 11
   };
 
 enum
   {
     M_MENU = 0,
-    M_ACTION1 = 1
+    M_PEACE_1 = 1,
+    M_PEACE_2 = 2,
+    M_PEACE_3 = 3,
+    M_WAR_1 = 4,
+    M_WAR_2 = 5,
+    M_WAR_3 = 6,
+    M_WAR_4 = 7,
+    M_WAR_5 = 8,   
+    M_WAR_6 = 9, 
+    M_WAR_7 = 10
+
+
   };
 
 

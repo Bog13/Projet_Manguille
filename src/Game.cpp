@@ -17,9 +17,9 @@ Game::Game(RenderWindow *w): m_window(w), m_running(true)
 
   m_scene = nullptr;
 
-    m_scenes.push_back( new BattleScene(this,I_BATTLE_1,5) );
+  m_scenes.push_back( new BattleScene(this,I_BATTLE_1,5) );
   
-  //  make();
+  //make();
 
 
   next();
@@ -28,11 +28,24 @@ Game::Game(RenderWindow *w): m_window(w), m_running(true)
 
 void Game::make()
 {
-  std::string d1 = "test";
+  std::string d1 = "Suite a un conflit nee entre deux grandes nations, celle du comte Xelor et du comte Yaarvin, l'empereur charge le capitaine Manguille, son dernier general, de retablir la paix dans un systeme voisin. Alors s'engage, entre le capitaine et les grandes armees, un terrible combat.";
+
+  std::string d2 = "Le capitaine Manguille ressort victorieux de cet assault... Mais ce n'est qu'un debut, maintenant que les armees sont faible ,il va s'occuper en personne des generaux.";
+
+  std::string d3 = "Les deux generaux sont morts, les armees se replient vers leurs bases respective et le capitaine Manguille se prepare a prendre la forteresse spatiale du comte Yaarvin.";
+
+  std::string d4 = "Ca y est, le conflit prend fin... Le capitaine Manguille rentre victorieux sur la planete de l'empereur, mais ... une surprise l'attend...";
+
+  std::string d5 = "Alors que le conflit venait de prendre fin, Manguille comprend soudain que l'emprereur, en cachette, a donne des troupes au comte Xelor afin de s'assure que le capitaine ne reviendrait pas vivant de la  guerre... Ce stratageme avait pour but d'ecarte Manguille, son dernier general qui est la seul barriere entre l'empereur et le pouvoir absolu.";
 
 
   m_scenes.push_back( new Menu(this));
-  m_scenes.push_back( new StoryScene(this,d1,0,0));
+  m_scenes.push_back( new StoryScene(this,d1,I_EMPEROR,M_PEACE_3));
+  m_scenes.push_back( new StoryScene(this,d2,I_MANGUILLE,M_WAR_2));
+  m_scenes.push_back( new StoryScene(this,d3,I_MANGUILLE,M_WAR_4));
+  m_scenes.push_back( new StoryScene(this,d4,I_BATTLE_3,M_WAR_7));
+  m_scenes.push_back( new StoryScene(this,d5,I_EMPEROR,M_WAR_6));
+
 }
 
 Controller* Game::getController()

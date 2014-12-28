@@ -40,6 +40,7 @@ public:
     t->add(DATA_PATH + "/img/fond_4.png");
     t->add(DATA_PATH + "/img/ship.png");
     t->add(DATA_PATH + "/img/empereur.png");
+    t->add(DATA_PATH + "/img/manguille.png");
 
 
     
