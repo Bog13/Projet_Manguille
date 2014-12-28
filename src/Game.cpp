@@ -66,11 +66,14 @@ void Game::make()
   m_scenes.push_back( new StoryScene(this,d2,I_MANGUILLE,M_WAR_4));
 
 
+  m_scenes.push_back( new StoryScene(this,"Allons, cessez de nous combattre ! General, abattez le !",I_YAARVIN,M_YAARVIN));
 
   //attaque de yaarvin
   BattleScene *b3 = new BattleScene(this,0,2,4,10000,I_BATTLE_2,M_WAR_5);
-  b3->addBoss(new BossShip( b3, b3->getPlayer(),2,100,10,I_SHIP_Y ) );
+  b3->addBoss(new BossShip( b3, b3->getPlayer(),1,100,10,I_SHIP_Y ) );
   m_scenes.push_back( b3 );
+
+  m_scenes.push_back( new StoryScene(this,"Qui etes vous pour attaquer vos propres allies ?! General, occupez vous en !",I_XELOR,M_XELOR));
 
   //attaque de xelor
   BattleScene *b4 = new BattleScene(this,100,2,4,10000,I_BATTLE_3,M_WAR_7);
