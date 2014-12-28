@@ -24,13 +24,17 @@ public:
 
     return (x + w < 0 || x  > WIDTH || y + h < 0 || y  > HEIGHT);
   }
-							      
+
+  void setActif(bool b){m_actif = b;}
+  bool isActif(){return m_actif;}
+  RectangleShape getRectangleShape(){return m_rs;}
 							      
 protected:
   RectangleShape m_rs;
   int m_angle;
   int m_xvel;
   int m_yvel;
+  bool m_actif;
 };
 
 #endif

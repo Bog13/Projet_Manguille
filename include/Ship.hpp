@@ -6,21 +6,22 @@
 #include <SFML/Graphics.hpp>
 using namespace sf;
 
-class Missile;
+class BattleScene;
 
 class Ship
 {
 public:
-  Ship(int vx, int freq, int acc);
+  Ship(BattleScene* o,int vx, int freq, int acc);
   ~Ship();
 
   virtual void update()=0;
   virtual void updateLife();
   virtual void updateShoot()=0;
-  virtual void updateMissiles();
   virtual void shoot();
   virtual void display(RenderWindow *w);
 
+  virtual RectangleShape getRectangleShape(){return m_rs;}
+  virtual void hit(int value){m_life -= value;}
 protected:
   Clock m_clock;
   int m_w;
@@ -29,12 +30,12 @@ protected:
 
   RectangleShape m_rlife;
  
-  std::vector<Missile*> m_missiles;
   int m_xvel;
   int m_shootFreq;
   int m_accuracy;
   int m_life;
   int m_maxLife;
+  BattleScene* m_owner;
 };
 
 #endif

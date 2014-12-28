@@ -3,9 +3,10 @@
 #include <Missile.hpp>
 #include <Game.hpp>
 #include <Ship.hpp>
-EnemyShip::EnemyShip(int vx, int freq, int acc): Ship(vx,freq,acc)
-{
+#include <BattleScene.hpp>
 
+EnemyShip::EnemyShip(BattleScene* o,int vx, int freq, int acc): Ship(o,vx,freq,acc)
+{
 
 }
 
@@ -23,13 +24,20 @@ void EnemyShip::updateShoot()
 
 void EnemyShip::update()
 {
-  
+ 
   if(m_life > 0)
     {
       updateShoot();
-      updateMissiles();
       
-      m_rs.move(-m_xvel,0);
+      if(m_rs.getPosition().x > WIDTH/2 )
+	{
+	  m_rs.move(-m_xvel,0);
+	}
+    }
+  else
+    {
+      m_rs.move(-m_xvel/2,m_xvel);
+      m_rs.rotate(0.2);
     }
 
   updateLife();
@@ -45,8 +53,4 @@ void EnemyShip::display(RenderWindow *w)
 
 EnemyShip::~EnemyShip()
 {
-  for(Missile* m: m_missiles)
-    {
-      delete m;
-    }
 }

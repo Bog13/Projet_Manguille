@@ -1,5 +1,5 @@
-#ifndef ENEMYSHIP_HPP
-#define ENEMYSHIP_HPP
+#ifndef PLAYERSHIP_HPP
+#define PLAYERSHIP_HPP
 
 #include <iostream>
 #include <vector>
@@ -7,25 +7,25 @@
 #include <Ship.hpp>
 using namespace sf;
 
+class Controller;
 
-
-class EnemyShip: public Ship
+class PlayerShip: public Ship
 {
 public:
-  EnemyShip(BattleScene* o, int vx, int freq, int acc);
-  ~EnemyShip();
+  PlayerShip(BattleScene* o,Controller *c);
+  ~PlayerShip();
 
   virtual void update();
   virtual void updateShoot();
-
+  virtual void shoot();
   virtual void display(RenderWindow *w);
+
 protected:
-  
- 
+  Controller *m_controller;
+  int m_yvel;
     
 };
 
 #endif
-
 
 

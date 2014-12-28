@@ -1,7 +1,7 @@
 #include <Missile.hpp>
 #include <TextureLoader.hpp>
 #include <cmath>
-Missile::Missile(int a,int x,int y): m_angle(a),m_xvel(3),m_yvel(3)
+Missile::Missile(int a,int x,int y): m_angle(a),m_xvel(3),m_yvel(3), m_actif(true)
 {
   m_rs = RectangleShape(Vector2f(8,8));
   m_rs.setFillColor(Color::Red);
@@ -12,12 +12,20 @@ Missile::Missile(int a,int x,int y): m_angle(a),m_xvel(3),m_yvel(3)
 
 void Missile::update()
 {
-  m_rs.move(m_xvel * cos((m_angle*M_PI)/180),-m_yvel * sin((m_angle*M_PI)/180) );
+  if(m_actif)
+    {
+      m_rs.move(m_xvel * cos((m_angle*M_PI)/180),-m_yvel * sin((m_angle*M_PI)/180) );
+    }
+
+  if(isOut()) m_actif = false;
 }
 
 void Missile::display(RenderWindow *w)
 {
-  w->draw(m_rs);
+  if(m_actif)
+    {
+      w->draw(m_rs);
+    }
 }
 
 

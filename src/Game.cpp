@@ -17,7 +17,7 @@ Game::Game(RenderWindow *w): m_window(w), m_running(true)
 
   m_scene = nullptr;
 
-  m_scenes.push_back( new BattleScene(this,I_BATTLE_1,5) );
+  m_scenes.push_back( new BattleScene(this,2,5000,I_BATTLE_1,5) );
   
   //make();
 
