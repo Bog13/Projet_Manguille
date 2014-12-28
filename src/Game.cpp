@@ -63,7 +63,7 @@ void Game::make()
   BattleScene *b = new BattleScene(this,50,4,2,10000,I_BATTLE_1,M_WAR_3);
   m_scenes.push_back( b );
 
-  m_scenes.push_back( new StoryScene(this,d2,I_MANGUILLE,M_WAR_2));*/
+  m_scenes.push_back( new StoryScene(this,d2,I_MANGUILLE,M_WAR_2));
 
 
   //attaque de yaarvin
