@@ -14,7 +14,8 @@ public:
 
   Music* get(int index);
   void add(std::string path);
-
+  void play(int i);
+  void stop();
 
   static MusicLoader* instance()
   {
@@ -29,6 +30,7 @@ public:
   static void init()
   {
     MusicLoader::instance()->add(DATA_PATH + "/music/menu.ogg");
+    MusicLoader::instance()->add(DATA_PATH + "/music/music_1.ogg");
   }
 
   static void kill()

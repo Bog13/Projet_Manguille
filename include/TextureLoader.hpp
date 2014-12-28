@@ -34,6 +34,7 @@ public:
     t->add(DATA_PATH + "/img/menu_jouer2.png");
     t->add(DATA_PATH + "/img/menu_quitter.png");
     t->add(DATA_PATH + "/img/menu_quitter2.png");
+    t->add(DATA_PATH + "/img/menu_fond.png");
     
   }
 

@@ -32,6 +32,21 @@ void MusicLoader::add(std::string path)
   
 }
 
+void MusicLoader::stop()
+{
+   for(Music *m: m_vec)
+    {
+      m->stop();
+    }
+
+}
+
+void MusicLoader::play(int i)
+{
+  stop();
+
+   m_vec[i]->play();
+}
 
 MusicLoader::~MusicLoader()
 {

@@ -17,7 +17,8 @@ enum
     MENU_JOUER = 1, 
     MENU_JOUER2 = 2,
     MENU_QUITTER = 3,
-    MENU_QUITTER2 = 4
+    MENU_QUITTER2 = 4,
+    SC1 = 5
   };
 
 

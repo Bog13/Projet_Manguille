@@ -5,7 +5,7 @@
 #include <Game.hpp>
 #include <Controller.hpp>
 
-Menu::Menu(Game *o):Scene(o), m_button(0), m_timeMin(250), m_nbButton(2)
+Menu::Menu(Game *o):Scene(o,MENU,MENU), m_button(0), m_timeMin(250), m_nbButton(2)
 {
   m_bg = RectangleShape(Vector2f(WIDTH,HEIGHT));
   m_bg.setTexture( TextureLoader::instance()->get(MENU) );
@@ -20,9 +20,6 @@ Menu::Menu(Game *o):Scene(o), m_button(0), m_timeMin(250), m_nbButton(2)
   m_quitter.setPosition(Vector2f(WIDTH/6, HEIGHT/2 + 100  ));
 
   
-  MusicLoader::instance()->get(MENU)->setLoop(true);
-  MusicLoader::instance()->get(MENU)->play();
-
   m_clock.restart();
   
 }
@@ -67,12 +64,10 @@ void Menu::update()
   if(m_controller->shoot())
     {
       
-      MusicLoader::instance()->get(MENU)->stop();
-
       switch(m_button)
 	{
 	case 0: 
-	  m_owner->playGame();
+	  m_owner->nextScene();
 	  break;
 
 	case 1:
