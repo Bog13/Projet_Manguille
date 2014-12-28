@@ -2,6 +2,7 @@
 #include <global.hpp>
 #include <Scene.hpp>
 #include <Menu.hpp>
+#include <StoryScene.hpp>
 #include <TextureLoader.hpp>
 #include <MusicLoader.hpp>
 #include <Controller.hpp>
@@ -10,7 +11,19 @@
 Game::Game(RenderWindow *w): m_window(w), m_running(true)
 {
   m_controller = new KeyboardController;
-  m_scene = new Menu(this);
+  m_numScene = -1;
+
+  m_scene = nullptr;
+
+  m_scenes.push_back(new Menu(this));
+  m_scenes.push_back(new StoryScene(this,"rien a ajouter !",1,0));
+  m_scenes.push_back(new StoryScene(this,"Ceci est un dialogue, c'est fou non ? Je me demande ou est passe ce poisson ! Vous l'aimiez temps, vous le xxx comme si cetait votre fils ! Avez vous regardez dans le tiroir ? Avez vous regardez sous sa trompe ?",0,1));
+  m_scenes.push_back(new StoryScene(this,"Troisieme scene",2,0));
+
+
+
+   next();
+
 }
 
 Controller* Game::getController()
@@ -18,24 +31,44 @@ Controller* Game::getController()
   return m_controller;
 }
 
-void Game::playMenu()
-{
-  if(m_scene != nullptr) delete m_scene;
-  m_scene = new Menu(this);
-}
 
-void Game::playGame()
+
+void Game::change(Scene *s)
 {
+  m_scene = s;
+
   if(m_scene != nullptr)
     {
-      delete m_scene;
+      MusicLoader::instance()->play(m_scene->getMusic());
     }
+}
 
-  m_scene = nullptr;
+void Game::nextScene()
+{
+  if(m_timeBeetwenScene.getElapsedTime().asMilliseconds() > 500 )
+    {
+      next();
+      m_timeBeetwenScene.restart();
+    }
+}
+
+void Game::next()
+{
+
+  if(m_numScene + 1 < m_scenes.size())
+    {
+      ++m_numScene;
+      change( m_scenes[m_numScene] );
+    }
+  else
+    {
+      m_scene = nullptr;
+    }
 }
 
 void Game::quit()
 {
+  MusicLoader::instance()->stop();
   m_running = false;
 }
 
@@ -96,6 +129,11 @@ void Game::render()
 
 Game::~Game()
 {
-  delete m_controller;
-  delete m_scene;
+  delete m_controller; 
+
+  for(Scene *s:m_scenes)
+    {
+      delete s;
+    }
+
 }

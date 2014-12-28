@@ -2,6 +2,7 @@
 #define GAME_HPP
 #include <iostream>
 #include <SFML/Graphics.hpp>
+#include <vector>
 using namespace sf;
 
 class Scene;
@@ -20,14 +21,20 @@ public:
   Controller *getController();
 
   void quit();
-  void playMenu();
-  void playGame();
+
+  void nextScene();
+  void change(Scene *s);
+
 private:
+  void next();
+
   bool m_running;
   RenderWindow *m_window;
   Scene *m_scene;
   Controller *m_controller;
-
+  int m_numScene;
+  std::vector<Scene*> m_scenes;
+  Clock m_timeBeetwenScene;
 };
 
 #endif
