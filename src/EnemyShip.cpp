@@ -9,6 +9,8 @@
 EnemyShip::EnemyShip(BattleScene* o,int px,int vx, int freq, int acc): Ship(o,vx,freq,acc)
 {
   m_name = "enemyship";
+  m_maxLife = 25;
+  m_life = m_maxLife;
 
   int texture = 0;
 

@@ -57,7 +57,7 @@ void Game::make()
   std::string d5 = "Alors que le conflit venait de prendre fin, Manguille comprend soudain que l'emprereur, en cachette, a donne des troupes au comte Xelor afin de s'assure que le capitaine ne reviendrait pas vivant de la  guerre... Ce stratageme avait pour but d'ecarte Manguille, son dernier general qui est la seul barriere entre l'empereur et le pouvoir absolu.";
 
 
-  /* m_scenes.push_back( new Menu(this));
+  m_scenes.push_back( new Menu(this));
   m_scenes.push_back( new StoryScene(this,d1,I_EMPEROR,M_PEACE_3));
 
   BattleScene *b = new BattleScene(this,50,4,2,10000,I_BATTLE_1,M_WAR_3);
@@ -65,26 +65,52 @@ void Game::make()
 
   m_scenes.push_back( new StoryScene(this,d2,I_MANGUILLE,M_WAR_2));*/
 
-  //generaux
-  m_scenes.push_back( new StoryScene(this,"Arggg... Viens te battre !",I_XELOR,M_XELOR));
-  BattleScene *b1 = new BattleScene(this,100,1,4,10000,I_BATTLE_1,M_XELOR);
-  b1->addBoss(new BossShip( b1, b1->getPlayer(),1,100,10,I_SHIP_X ) );
-  m_scenes.push_back( b1 );
 
+  //attaque de yaarvin
+  BattleScene *b3 = new BattleScene(this,0,2,4,10000,I_BATTLE_2,M_WAR_3);
+  b3->addBoss(new BossShip( b3, b3->getPlayer(),2,100,10,I_SHIP_Y ) );
+  m_scenes.push_back( b3 );
+
+  //attaque de xelor
+  BattleScene *b4 = new BattleScene(this,100,2,4,10000,I_BATTLE_3,M_WAR_4);
+  b4->addBoss(new BossShip( b4, b4->getPlayer(),4,100,10,I_SHIP_X ) );
+  m_scenes.push_back( b4 );
 
   m_scenes.push_back( new StoryScene(this,d3,I_MANGUILLE,M_WAR_4));
 
-  BattleScene *b3 = new BattleScene(this,0,4,4,10000,I_BATTLE_2,M_WAR_3);
-  m_scenes.push_back( b3 );
-
+  //yaarvin
 m_scenes.push_back( new StoryScene(this,"Toi ?! Traitre ! Tu vas perir !",I_YAARVIN,M_YAARVIN));
   BattleScene *b2 = new BattleScene(this,0,1,4,10000,I_BATTLE_2,M_YAARVIN);
   b2->addBoss(new BossShip( b2, b2->getPlayer(),4,700,10,I_SHIP_Y ) );
   m_scenes.push_back( b2 );
 
+  
+  //xelor
+m_scenes.push_back( new StoryScene(this,"Arggg... Viens te battre !",I_XELOR,M_XELOR));
+  BattleScene *b1 = new BattleScene(this,100,1,4,10000,I_BATTLE_1,M_XELOR);
+  b1->addBoss(new BossShip( b1, b1->getPlayer(),1,100,10,I_SHIP_X ) );
+  m_scenes.push_back( b1 );
+
   m_scenes.push_back( new StoryScene(this,d4,I_BATTLE_3,M_WAR_7));
   m_scenes.push_back( new StoryScene(this,d5,I_EMPEROR,M_WAR_6));
 
+
+  m_scenes.push_back( new StoryScene(this,"La mort vous attends tous ! Venez l'accueillir !",I_EMPEROR,M_EMPEROR));
+  BattleScene *b5 = new BattleScene(this,100,0,0,10000,I_BATTLE_1,M_EMPEROR);
+  b5->addBoss(new BossShip( b5, b5->getPlayer(),1,1000,20,I_SHIP_X ) );
+  m_scenes.push_back( b5 );
+
+  m_scenes.push_back( new StoryScene(this,"Que ce passe t-il ? Vous ne saurez me vaincre aussi facilement ! Garde !!!",I_EMPEROR,M_EMPEROR));
+  BattleScene *b6 = new BattleScene(this,0,10,2,1000,I_BATTLE_2,M_WAR_4);
+  m_scenes.push_back( b6 );
+
+  m_scenes.push_back( new StoryScene(this,"Je ne laisserai pas un sous homme comme vous me vaincre !",I_EMPEROR,M_EMPEROR));
+  BattleScene *b7 = new BattleScene(this,100,0,0,10000,I_BATTLE_1,M_EMPEROR);
+  b7->addBoss(new BossShip( b7, b7->getPlayer(),4,1000,10,I_SHIP_X ) );
+  m_scenes.push_back( b7 );
+  
+  m_scenes.push_back( new StoryScene(this,"Non !!! J'ai echoue...",I_EMPEROR,M_PEACE_1));
+  m_scenes.push_back( new StoryScene(this,"Rien ne saurais me vaincre !!! Muhahahahaha... ",I_MANGUILLE,M_PEACE_2));
 }
 
 Controller* Game::getController()
