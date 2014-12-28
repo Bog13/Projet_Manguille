@@ -3,45 +3,81 @@
 #include <Scene.hpp>
 #include <Menu.hpp>
 #include <TextureLoader.hpp>
+#include <MusicLoader.hpp>
+#include <Controller.hpp>
+#include <KeyboardController.hpp>
 
-Game::Game(RenderWindow *w): m_window(w)
+Game::Game(RenderWindow *w): m_window(w), m_running(true)
 {
-  m_scene = new Menu;
+  m_controller = new KeyboardController;
+  m_scene = new Menu(this);
+}
+
+Controller* Game::getController()
+{
+  return m_controller;
+}
+
+void Game::playMenu()
+{
+  if(m_scene != nullptr) delete m_scene;
+  m_scene = new Menu(this);
+}
+
+void Game::playGame()
+{
+  if(m_scene != nullptr)
+    {
+      delete m_scene;
+    }
+
+  m_scene = nullptr;
+}
+
+void Game::quit()
+{
+  m_running = false;
 }
 
 void Game::update()
 {
-  m_scene->update();
+  if(m_scene != nullptr)
+    {
+      m_scene->update();
+    }
 }
 
 
 void Game::display()
 {
-  m_scene->display(m_window);
+  if(m_scene != nullptr)
+    {
+      m_scene->display(m_window);
+    }
+
+  if(m_controller->quit()) quit();
 }
 
 void Game::render()
 {
-  Event event;
+  Event* event = m_controller->getEvent();;
 
-  while( m_window->isOpen() )
+  while( m_running )
     {
-      while( m_window->pollEvent(event) )
+      while( m_window->pollEvent(*event) )
 	{
-	  switch(event.type)
+	  switch(event->type)
 	    {
 	    case Event::Closed:
-	      m_window->close();
+	      m_running = false;
 	      break;
 
 	    case Event::KeyPressed:
 
-	      switch(event.key.code)
+	      switch(event->key.code)
 		{
-		case Keyboard::Escape:
-		  m_window->close();
-		  break;
-
+	       
+		
 		default:break;
 		}
 	      
@@ -60,5 +96,6 @@ void Game::render()
 
 Game::~Game()
 {
+  delete m_controller;
   delete m_scene;
 }

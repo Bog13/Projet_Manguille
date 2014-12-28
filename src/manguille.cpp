@@ -8,7 +8,19 @@ using namespace std;
 
 int main()
 {
-  sf::RenderWindow window(sf::VideoMode(WIDTH,HEIGHT),PROJECT_NAME);
+
+  sf::RenderWindow window;
+
+  if( FULLSCREEN )
+    {
+      window.create(sf::VideoMode(WIDTH,HEIGHT),PROJECT_NAME,sf::Style::Fullscreen);
+    }
+  else
+    {
+      window.create(sf::VideoMode(WIDTH,HEIGHT),PROJECT_NAME,sf::Style::Close);
+    }
+
+
 
   TextureLoader::init();
   MusicLoader::init();

@@ -27,7 +27,6 @@ void MusicLoader::add(std::string path)
     }
   else
     {
-      delete tmp;
       std::cerr<<"Can't load "<<path<<" !"<<std::endl;
     }
   
@@ -36,9 +35,8 @@ void MusicLoader::add(std::string path)
 
 MusicLoader::~MusicLoader()
 {
-  
-  for(Music *t: m_vec)
+  for(Music *m: m_vec)
     {
-      delete t;
+      delete m;
     }
 }
