@@ -33,6 +33,8 @@ public:
 
   static void kill()
   {
+    MusicLoader::instance()->get(0)->stop();
+    while( MusicLoader::instance()->get(0)->getStatus() != 0 ){}
     delete m_instance;
   }
 
