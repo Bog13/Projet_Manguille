@@ -45,6 +45,7 @@ void MusicLoader::play(int i)
 {
   stop();
 
+  m_vec[i]->setLoop(true);
    m_vec[i]->play();
 }
 

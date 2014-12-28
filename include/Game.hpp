@@ -2,6 +2,8 @@
 #define GAME_HPP
 #include <iostream>
 #include <SFML/Graphics.hpp>
+#include <ctime>
+#include <cstdlib>
 #include <vector>
 using namespace sf;
 
@@ -24,6 +26,13 @@ public:
 
   void nextScene();
   void change(Scene *s);
+  void make();
+
+
+  static int random(int a,int b)
+  {
+    return rand()%(b-a)+a;
+  }
 
 private:
   void next();

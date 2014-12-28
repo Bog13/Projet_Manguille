@@ -34,7 +34,14 @@ public:
     t->add(DATA_PATH + "/img/menu_jouer2.png");
     t->add(DATA_PATH + "/img/menu_quitter.png");
     t->add(DATA_PATH + "/img/menu_quitter2.png");
-    t->add(DATA_PATH + "/img/menu_fond.png");
+    t->add(DATA_PATH + "/img/fond_1.png");
+    t->add(DATA_PATH + "/img/fond_2.png");
+    t->add(DATA_PATH + "/img/fond_3.png");
+    t->add(DATA_PATH + "/img/fond_4.png");
+    t->add(DATA_PATH + "/img/ship.png");
+    t->add(DATA_PATH + "/img/empereur.png");
+
+
     
   }
 
