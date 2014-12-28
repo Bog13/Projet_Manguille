@@ -9,6 +9,8 @@
 PlayerShip::PlayerShip(BattleScene* o,Controller *c): Ship(o,0,100,2), m_controller(c), m_yvel(5)
 {
   m_name = "playership";
+  m_maxLife = 500;
+  m_life = m_maxLife;
   m_rs.setPosition(Vector2f(0,Game::random(0,HEIGHT - m_h)));
 }
 

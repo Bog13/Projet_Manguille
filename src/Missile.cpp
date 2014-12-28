@@ -1,7 +1,7 @@
 #include <Missile.hpp>
 #include <TextureLoader.hpp>
 #include <cmath>
-Missile::Missile(int a,int x,int y): m_angle(a),m_xvel(3),m_yvel(3), m_actif(true)
+Missile::Missile(int a,int x,int y): m_angle(a),m_xvel(5),m_yvel(3), m_actif(true)
 {
   m_rs = RectangleShape(Vector2f(8,8));
   m_rs.setFillColor(Color::Red);

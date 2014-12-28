@@ -89,7 +89,7 @@ void BattleScene::update()
 	    {
 	      if( collide(s,m_missiles[i]) )
 		{
-		  if(s->getName() != "playership")s->hit(5);
+		  s->hit(5);
 		  m_missiles[i]->setActif(false);
 		}
 	    }

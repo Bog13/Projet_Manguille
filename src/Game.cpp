@@ -60,20 +60,21 @@ void Game::make()
   m_scenes.push_back( new Menu(this));
   m_scenes.push_back( new StoryScene(this,d1,I_EMPEROR,M_PEACE_3));
 
-  BattleScene *b = new BattleScene(this,50,4,2,10000,I_BATTLE_1,M_WAR_3);
+  BattleScene *b = new BattleScene(this,50,4,2,10000,I_BATTLE_1,M_WAR_2);
   m_scenes.push_back( b );
 
-  m_scenes.push_back( new StoryScene(this,d2,I_MANGUILLE,M_WAR_2));
+  m_scenes.push_back( new StoryScene(this,d2,I_MANGUILLE,M_WAR_4));
+
 
 
   //attaque de yaarvin
-  BattleScene *b3 = new BattleScene(this,0,2,4,10000,I_BATTLE_2,M_WAR_3);
+  BattleScene *b3 = new BattleScene(this,0,2,4,10000,I_BATTLE_2,M_WAR_5);
   b3->addBoss(new BossShip( b3, b3->getPlayer(),2,100,10,I_SHIP_Y ) );
   m_scenes.push_back( b3 );
 
   //attaque de xelor
-  BattleScene *b4 = new BattleScene(this,100,2,4,10000,I_BATTLE_3,M_WAR_4);
-  b4->addBoss(new BossShip( b4, b4->getPlayer(),4,100,10,I_SHIP_X ) );
+  BattleScene *b4 = new BattleScene(this,100,2,4,10000,I_BATTLE_3,M_WAR_7);
+  b4->addBoss(new BossShip( b4, b4->getPlayer(),2,100,10,I_SHIP_X ) );
   m_scenes.push_back( b4 );
 
   m_scenes.push_back( new StoryScene(this,d3,I_MANGUILLE,M_WAR_4));
