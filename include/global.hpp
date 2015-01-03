@@ -2,7 +2,7 @@
 #define GLOBAL_HPP
 
 #define PROJECT_NAME "Espace-Libre: l'offensive du capitaine Manguille"
-#define DATA_PATH std::string("/home/bog/Documents/PROJET/Projet_Manguille/data")
+#define DATA_PATH std::string("../../Projet_Manguille/data")
 #define FULLSCREEN false
 #define WIDTH 640
 #define HEIGHT 480
